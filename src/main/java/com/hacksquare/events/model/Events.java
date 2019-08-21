@@ -22,7 +22,6 @@ public class Events {
     @Column(name = "Place")
     String place;
 
-    @NotNull
     @Column(name = "Likes")
     int likes;
 

@@ -5,6 +5,7 @@ import com.hacksquare.events.repository.EventRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,11 @@ public class EventsController {
     @GetMapping("/{id}")
     public Events getEventsById(@PathVariable int id) {
         return eventRepo.findById(id);
+    }
+
+    @PostMapping(value = "/add")
+    public void createEvent(@Valid @RequestBody Events events) {
+        eventRepo.save(events);
     }
 
 
